@@ -1,13 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace StudentRepoExample
 {
@@ -22,13 +13,17 @@ namespace StudentRepoExample
         {
             InitializeComponent();
             StudentRepoCSV repo = new StudentRepoCSV();
+            StudentRepoDB repo2 = new StudentRepoDB("YOU CONNECTION STRING HERE");
             //_repo = repo;
             //studentDG.DataContext = repo.GetStudents();
 
-            var studentList = repo.GetStudents();
+            var studentListCSV = repo.GetStudents();
+
+            var studentListDB = repo2.GetStudents();
 
             //Bind this to a datasource
-            studentDG.ItemsSource = studentList;
+            studentDG.ItemsSource = studentListCSV;
+            studentDG2.ItemsSource = studentListDB;
         }
     }
 }
