@@ -7,7 +7,7 @@ namespace StudentRepoExample
     {
         //APPLY this called CRUD operations
 
-        //1.READ in a list of students
+        //1.READ in a list of students - WHAT
         List<Student> GetStudents(); // #TODO Make it more flex by getting generic records instead
 
         //2.CREATE a new student record

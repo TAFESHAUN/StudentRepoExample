@@ -16,9 +16,19 @@ namespace StudentRepoExample
     /// </summary>
     public partial class MainWindow : Window
     {
+        // #TODO Try out on app load vs hard force here
+        //private StudentRepoCSV _repo = new StudentRepoCSV();
         public MainWindow()
         {
             InitializeComponent();
+            StudentRepoCSV repo = new StudentRepoCSV();
+            //_repo = repo;
+            //studentDG.DataContext = repo.GetStudents();
+
+            var studentList = repo.GetStudents();
+
+            //Bind this to a datasource
+            studentDG.ItemsSource = studentList;
         }
     }
 }
