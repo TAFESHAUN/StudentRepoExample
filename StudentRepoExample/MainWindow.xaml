@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentRepoExample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1200" Width="1000">
+        Title="MainWindow" Height="1200" Width="1600">
     <Grid>
         <DataGrid x:Name="studentDG" AutoGenerateColumns="True" IsReadOnly="True" Margin="30,68,30,704" FontSize="24"/>
         <Label Content="CSV Info" HorizontalAlignment="Left" Margin="30,28,0,0" VerticalAlignment="Top" Width="171" FontSize="24"/>
         <DataGrid x:Name="studentDG2" AutoGenerateColumns="True" IsReadOnly="True" Margin="30,561,30,131" FontSize="24"/>
         <Label Content="Database Info" HorizontalAlignment="Left" Margin="30,514,0,0" VerticalAlignment="Top" Width="171" FontSize="24"/>
+        <Button Content="ADD NEW STUDENT" HorizontalAlignment="Left" Margin="1425,489,0,0" VerticalAlignment="Top" Height="52" Width="128" Click="Add_Student"/>
+        <TextBox x:Name="StudentName" HorizontalAlignment="Left" Margin="543,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Height="44" Text="Name"/>
+        <TextBox x:Name="StudentAge" HorizontalAlignment="Left" Margin="865,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" Height="44" Text="Age"/>
+        <TextBox x:Name="StudentYear" HorizontalAlignment="Left" Margin="998,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" Height="44" Text="Year"/>
+        <TextBox x:Name="StudentSport" HorizontalAlignment="Left" Margin="1138,489,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" Height="44" Text="Sports"/>
 
 
     </Grid>

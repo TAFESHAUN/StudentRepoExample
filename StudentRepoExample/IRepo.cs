@@ -11,7 +11,7 @@ namespace StudentRepoExample
         List<Student> GetStudents(); // #TODO Make it more flex by getting generic records instead
 
         //2.CREATE a new student record
-        void AddStudent(Student addStudent);
+        void AddStudent(List<Student> addStudents);
 
         //3.UPDATE an existing student record
         void UpdateStudent(Student upStudent);

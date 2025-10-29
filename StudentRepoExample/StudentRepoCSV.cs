@@ -21,18 +21,26 @@ namespace StudentRepoExample
                 HasHeaderRecord = true,
             };
 
-            using var reader = new StreamReader(csvFilePath);
-            var csv = new CsvReader(reader, config);
+            using var reader = new StreamReader(csvFilePath); //OPENS THE FILE PATH AND BEGINS READING
+            var csv = new CsvReader(reader, config); // THIS MAPS THE RECORDS OR READS ROWS
 
-           return csv.GetRecords<Student>().ToList();
+           return csv.GetRecords<Student>().ToList(); //THIS OUTPUTS THE ROWS == STUDENT OBJECT LIST
 
         }
 
         #region CRUD Methods NOT DONE
         //CREATE
-        public void AddStudent(Student addStudent)
+        public void AddStudent(List<Student> addStudents)
         {
             // #TODO CREATE needs implementation
+            //string newPath = $"student2.csv";
+            using var writer = new StreamWriter(csvFilePath);
+            var csv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture);
+            //List<Student> students = new List<Student>();
+            //students.Add(addStudent);
+            csv.WriteRecords(addStudents);
+           //csv.WriteRecord(addStudent);
+
         }
 
         //UPDATE

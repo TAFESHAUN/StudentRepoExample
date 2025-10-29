@@ -15,10 +15,17 @@ namespace StudentRepoExample
             var returnStudentlist = new List<Student>();
 
             using var conn = new SqlConnection(_conn);
-            using var cmd = new SqlCommand(
-                "SELECT * FROM Student", conn);
+            using var cmd = new SqlCommand();
 
+            //SELECT * FROM Student WHERE YearGroup > 11
+            cmd.CommandText = "SELECT * FROM student WHERE YearGroup = @year";
+            cmd.Parameters.AddWithValue("@year", "Year 11");
+            cmd.Connection = conn;
             conn.Open();
+            cmd.ExecuteNonQuery();
+       
+
+            //conn.Open();
             using SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
@@ -37,7 +44,7 @@ namespace StudentRepoExample
 
         #region CRUD Methods NOT DONE
         //CREATE
-        public void AddStudent(Student addStudent)
+        public void AddStudent(List<Student> addStudents)
         {
             // #TODO CREATE needs implementation
         }
