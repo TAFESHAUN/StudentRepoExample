@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 using StudentRepoExample.DataModel;
@@ -25,7 +24,8 @@ namespace StudentRepoExample
         {
             InitializeComponent();
             //repo = new StudentRepoCSV();    // CSV OFF
-            repo2 = new StudentRepoDB("Data Source=DESKTOP-FFSLR8G\\SQLEXPRESS01;Initial Catalog=StudentDB2025;Integrated Security=True;Trust Server Certificate=True");
+            repo2 = new StudentRepoDB(ConfigurationManager.ConnectionStrings["StudentConnect"].ConnectionString);
+            //repo2 = new StudentRepoDB("Data Source=DESKTOP-FFSLR8G\\SQLEXPRESS01;Initial Catalog=StudentDB2025;Integrated Security=True;Trust Server Certificate=True");
             //_repo = repo;
             //studentDG.DataContext = repo.GetStudents();
 
@@ -63,8 +63,8 @@ namespace StudentRepoExample
             {
                 Name = StudentName.Text.Trim(),
                 Age = ageInt,
-                YearGroup = string.IsNullOrWhiteSpace(StudentYear.Text) ? null : StudentYear.Text.Trim(),
-                SportsTeam = string.IsNullOrWhiteSpace(StudentSport.Text) ? null : StudentSport.Text.Trim()
+                YearGroup =  StudentYear.Text.Trim(),
+                SportsTeam =  StudentSport.Text.Trim()
             };
 
             try

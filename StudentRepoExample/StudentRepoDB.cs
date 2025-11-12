@@ -8,7 +8,8 @@ namespace StudentRepoExample
     public class StudentRepoDB : IRepo
     {
         private readonly string _conn;
-        public StudentRepoDB(string connString) => _conn = connString;
+        public StudentRepoDB(string connString) => _conn = connString; 
+        //Config Manager
 
         //HOW - IS THE DB version of our IRepo interface
         public List<Student> GetStudents()
